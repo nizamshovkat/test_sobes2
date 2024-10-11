@@ -1,0 +1,22 @@
+- name: Ensure /opt/web_app directory exists
+  file:
+    path: /opt/web_app
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Copy docker-compose.yml
+  copy:
+    src: docker-compose.yml
+    dest: /opt/web_app/docker-compose.yml
+
+- name: Copy Dockerfile
+  copy:
+    src: Dockerfile
+    dest: /opt/web_app/Dockerfile
+
+- name: Copy PHP file
+  copy:
+    src: index.php
+    dest: /opt/web_app/index.php
